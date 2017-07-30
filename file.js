@@ -214,8 +214,8 @@ function Search(finishMoveCallback, maxPly, finishPlyCallback) {
         value = tmp;
 
         if (value > alpha && value < beta) {
-            alpha = value - 1000;
-            beta = value + 1000;
+            alpha = value - 1500;
+            beta = value + 1500;
 
             if (alpha < minEval) alpha = minEval;
             if (beta > maxEval) beta = maxEval;
@@ -441,10 +441,10 @@ function Evaluate() {
 
     // Black bishop pair
     if (g_pieceCount[pieceBishop] >= 2)
-        evalAdjust -= 500;
+        evalAdjust -= 800;
     // White bishop pair
     if (g_pieceCount[pieceBishop | colorWhite] >= 2)
-        evalAdjust += 500;
+        evalAdjust += 800;
 
     var mobility = Mobility(8) - Mobility(0);
 
