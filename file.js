@@ -214,8 +214,8 @@ function Search(finishMoveCallback, maxPly, finishPlyCallback) {
         value = tmp;
 
         if (value > alpha && value < beta) {
-            alpha = value - 1500;
-            beta = value + 1500;
+            alpha = value - 700;
+            beta = value + 700;
 
             if (alpha < minEval) alpha = minEval;
             if (beta > maxEval) beta = maxEval;
@@ -245,7 +245,7 @@ var maxEval = +2000000;
 var minMateBuffer = minEval + 2000;
 var maxMateBuffer = maxEval - 2000;
 
-var materialTable = [0, 700, 2800, 4200, 4900, 9100, 600000];
+var materialTable = [0, 700, 2800, 3000, 5600, 8600, 600000];
 
 var pawnAdj =
 [
@@ -441,10 +441,10 @@ function Evaluate() {
 
     // Black bishop pair
     if (g_pieceCount[pieceBishop] >= 2)
-        evalAdjust -= 800;
+        evalAdjust -= 910;
     // White bishop pair
     if (g_pieceCount[pieceBishop | colorWhite] >= 2)
-        evalAdjust += 800;
+        evalAdjust += 910;
 
     var mobility = Mobility(8) - Mobility(0);
 
