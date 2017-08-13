@@ -214,8 +214,8 @@ function Search(finishMoveCallback, maxPly, finishPlyCallback) {
         value = tmp;
 
         if (value > alpha && value < beta) {
-            alpha = value - 700;
-            beta = value + 700;
+            alpha = value - 999;
+            beta = value + 999;
 
             if (alpha < minEval) alpha = minEval;
             if (beta > maxEval) beta = maxEval;
