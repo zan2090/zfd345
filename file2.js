@@ -214,8 +214,8 @@ function Search(finishMoveCallback, maxPly, finishPlyCallback) {
         value = tmp;
 
         if (value > alpha && value < beta) {
-            alpha = value - 999;
-            beta = value + 999;
+            alpha = value - 1500;
+            beta = value + 1500;
 
             if (alpha < minEval) alpha = minEval;
             if (beta > maxEval) beta = maxEval;
@@ -245,15 +245,15 @@ var maxEval = +2000000;
 var minMateBuffer = minEval + 2000;
 var maxMateBuffer = maxEval - 2000;
 
-var materialTable = [0, 500, 2800, 3500, 4200, 9000, 600000];
+var materialTable = [0, 1400, 4200, 3400, 7000, 9800, 600000];
 
 var pawnAdj =
 [
     0,	 0,   0,   0, 	0,   0,   0,   0,
-  900, 900, 900, 900, 900, 900, 900, 900,
-  700, 700, 700, 900, 900, 700, 700, 700,
+  700, 700, 700, 700, 700, 700, 700, 700,
+  700, 700, 700, 500, 500, 700, 700, 700,
    50,  50, 100, 300, 300, 100,  50,  50,
-  -90, -50,  20, 200, 200,  20, -50, -90,
+  100,   0,  20, 200, 200,  20,   0, 100,
     0,  20,  15,  75,  75,  15,  20,   0, 
     5,   5,  10, -10, -10,  10,  5,    5, 
     0,   0,   0,   0,   0,   0,  0,    0
@@ -268,7 +268,7 @@ var knightAdj =
   -50,  50, 100, 200, 200, 100,  50, -50,
   -50,  50, 100, 100, 100, 100,  50, -50, 
     0,   0,   0,  50,  50,   0,   0,   0, 
- -200, -50, -50, -50, -50, -50, -50,-200
+ -200, -50,   0, -50, -50,   0, -50,-200
 ];
 
 var bishopAdj =
@@ -443,10 +443,10 @@ function Evaluate() {
 
     // Black bishop pair
     if (g_pieceCount[pieceBishop] >= 2)
-        evalAdjust -= 1000;
+        evalAdjust -= 400;
     // White bishop pair
     if (g_pieceCount[pieceBishop | colorWhite] >= 2)
-        evalAdjust += 1000;
+        evalAdjust += 400;
 
     var mobility = Mobility(8) - Mobility(0);
 
