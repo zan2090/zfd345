@@ -2274,8 +2274,8 @@ function UndoHistory(ep, castleRights, inCheck, baseEval, hashKeyLow, hashKeyHig
     this.captured = captured;
 }
 
-var g_seeValues = [0, 90, 280, 350, 450, 780, 9000, 0,
-                    0, 90, 280, 350, 450, 780, 9000, 0];
+var g_seeValues = [0, 1, 3, 3, 5, 9, 900, 0,
+                    0, 1, 3, 3, 5, 9, 900, 0];
 
 function See(move) {
     var from = move & 0xFF;
