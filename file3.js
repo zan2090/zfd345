@@ -245,7 +245,7 @@ var maxEval = +2000000;
 var minMateBuffer = minEval + 2000;
 var maxMateBuffer = maxEval - 2000;
 
-var materialTable = [0, 500, 2800, 3500, 4200, 6300, 600000];
+var materialTable = [0, 700, 2800, 4000, 4000, 11200, 600000];
 
 var pawnAdj =
 [
@@ -253,7 +253,7 @@ var pawnAdj =
   900, 900, 900, 900, 900, 900, 900, 900,
   700, 700, 700, 900, 900, 700, 700, 700,
    50,  50, 100, 300, 300, 100,  50,  50,
-  -90, -50,  20, 200, 200,  20, -50, -90,
+   90,  50,  20, 200, 200,  20,  90,  90,
     0,  20,  15,  75,  75,  15,  20,   0, 
     5,   5,  10, -10, -10,  10,  5,    5, 
     0,   0,   0,   0,   0,   0,  0,    0
@@ -443,10 +443,10 @@ function Evaluate() {
 
     // Black bishop pair
     if (g_pieceCount[pieceBishop] >= 2)
-        evalAdjust -= 2100;
+        evalAdjust -= 1000;
     // White bishop pair
     if (g_pieceCount[pieceBishop | colorWhite] >= 2)
-        evalAdjust += 2100;
+        evalAdjust += 1000;
 
     var mobility = Mobility(8) - Mobility(0);
 
