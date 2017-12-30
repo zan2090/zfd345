@@ -245,7 +245,7 @@ var maxEval = +2000000;
 var minMateBuffer = minEval + 2000;
 var maxMateBuffer = maxEval - 2000;
 
-var materialTable = [0, 900,2000, 3000, 4000, 6000, 600000];
+var materialTable = [0, 900,2000, 3000, 3500, 6000, 600000];
 
 var pawnAdj =
 [
